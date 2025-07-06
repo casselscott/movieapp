@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineMax - Movie Theater</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <i class="fas fa-film me-2"></i>CineMax
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Cinemas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Offers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO CAROUSEL -->
+    <div
+      id="movieCarousel"
+      class="carousel slide hero-section"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#movieCarousel"
+          data-bs-slide-to="0"
+          class="active"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#movieCarousel"
+          data-bs-slide-to="1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#movieCarousel"
+          data-bs-slide-to="2"
+        ></button>
+      </div>
+      <div class="carousel-inner container d-flex align-items-center">
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-md-6">
+              <h1 class="display-4 fw-bold">The Batman</h1>
+              <p class="lead">
+                When the Riddler targets Gotham's elite, Batman must uncover the
+                corruption.
+              </p>
+              <div class="rating mb-3">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="ms-2">4.5/5</span>
+              </div>
+              <button
+                class="btn btn-danger btn-lg me-2"
+                data-bs-toggle="modal"
+                data-bs-target="#bookTicketModal"
+              >
+                <i class="fas fa-ticket-alt"></i> Book Now
+              </button>
+              <button
+                class="btn btn-outline-light btn-lg"
+                data-bs-toggle="modal"
+                data-bs-target="#trailerModal"
+              >
+                <i class="fas fa-play"></i> Trailer
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-md-6">
+              <h1 class="display-4 fw-bold">Dune</h1>
+              <p class="lead">
+                A noble family becomes embroiled in a war for control over the
+                galaxy's most valuable asset.
+              </p>
+              <div class="rating mb-3">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span class="ms-2">4.2/5</span>
+              </div>
+              <button
+                class="btn btn-danger btn-lg me-2"
+                data-bs-toggle="modal"
+                data-bs-target="#bookTicketModal"
+              >
+                <i class="fas fa-ticket-alt"></i> Book Now
+              </button>
+              <button
+                class="btn btn-outline-light btn-lg"
+                data-bs-toggle="modal"
+                data-bs-target="#trailerModal"
+              >
+                <i class="fas fa-play"></i> Trailer
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#movieCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#movieCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+
+    <!-- NOW SHOWING SECTION -->
+    <section class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-5 fw-bold">Now Showing</h2>
+        <div class="row g-4">
+          <!-- Movie Card 1 -->
+          <div class="col-md-4 col-lg-3">
+            <div class="card movie-card h-100">
+              <span class="badge badge-premiere">PREMIERE</span>
+              <img
+                src="https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg"
+                class="card-img-top"
+                alt="The Batman"
+              />
+              <div class="card-body">
+                <h5 class="card-title">The Batman</h5>
+                <div class="rating mb-2">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <span class="ms-2">4.5/5</span>
+                </div>
+                <p class="card-text text-muted">Action, Crime, Drama</p>
+                <button
+                  class="btn btn-outline-dark w-100"
+                  data-bs-toggle="modal"
+                  data-bs-target="#trailerModal"
+                >
+                  <i class="fas fa-play"></i> Trailer
+                </button>
+                <button
+                  class="btn btn-danger w-100 mt-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#bookTicketModal"
+                >
+                  <i class="fas fa-ticket-alt"></i> Book
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Movie Card 2 -->
+          <div class="col-md-4 col-lg-3">
+            <div class="card movie-card h-100">
+              <img
+                src="https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg"
+                class="card-img-top"
+                alt="Dune"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Dune</h5>
+                <div class="rating mb-2">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <span class="ms-2">4.2/5</span>
+                </div>
+                <p class="card-text text-muted">Sci-Fi, Adventure</p>
+                <button
+                  class="btn btn-outline-dark w-100"
+                  data-bs-toggle="modal"
+                  data-bs-target="#trailerModal"
+                >
+                  <i class="fas fa-play"></i> Trailer
+                </button>
+                <button
+                  class="btn btn-danger w-100 mt-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#bookTicketModal"
+                >
+                  <i class="fas fa-ticket-alt"></i> Book
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Movie Card 3 -->
+          <div class="col-md-4 col-lg-3">
+            <div class="card movie-card h-100">
+              <img
+                src="https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
+                class="card-img-top"
+                alt="Spider-Man: No Way Home"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Spider-Man: No Way Home</h5>
+                <div class="rating mb-2">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span class="ms-2">4.9/5</span>
+                </div>
+                <p class="card-text text-muted">Action, Adventure, Sci-Fi</p>
+                <button
+                  class="btn btn-outline-dark w-100"
+                  data-bs-toggle="modal"
+                  data-bs-target="#trailerModal"
+                >
+                  <i class="fas fa-play"></i> Trailer
+                </button>
+                <button
+                  class="btn btn-danger w-100 mt-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#bookTicketModal"
+                >
+                  <i class="fas fa-ticket-alt"></i> Book
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Movie Card 4 -->
+          <div class="col-md-4 col-lg-3">
+            <div class="card movie-card h-100">
+              <img
+                src="https://image.tmdb.org/t/p/w500/6DrHO1jr3qVrViUO6s6kFiAGM7.jpg"
+                class="card-img-top"
+                alt="The Matrix Resurrections"
+              />
+              <div class="card-body">
+                <h5 class="card-title">The Matrix Resurrections</h5>
+                <div class="rating mb-2">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <span class="ms-2">3.5/5</span>
+                </div>
+                <p class="card-text text-muted">Sci-Fi, Action</p>
+                <button
+                  class="btn btn-outline-dark w-100"
+                  data-bs-toggle="modal"
+                  data-bs-target="#trailerModal"
+                >
+                  <i class="fas fa-play"></i> Trailer
+                </button>
+                <button
+                  class="btn btn-danger w-100 mt-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#bookTicketModal"
+                >
+                  <i class="fas fa-ticket-alt"></i> Book
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMING SOON SECTION -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5 fw-bold">Coming Soon</h2>
+        <div class="row g-4">
+          <!-- Coming Soon Movie 1 -->
+          <div class="col-md-4 col-lg-3">
+            <div class="card movie-card h-100">
+              <img
+                src="https://image.tmdb.org/t/p/w500/sv1xJUazXeYqALzczSZ3O6nkH75.jpg"
+                class="card-img-top"
+                alt="Black Panther: Wakanda Forever"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Black Panther: Wakanda Forever</h5>
+                <p class="text-muted">Releasing: Nov 11, 2023</p>
+                <p class="card-text text-muted">Action, Adventure, Sci-Fi</p>
+                <button
+                  class="btn btn-outline-dark w-100"
+                  data-bs-toggle="modal"
+                  data-bs-target="#trailerModal"
+                >
+                  <i class="fas fa-play"></i> Trailer
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Coming Soon Movie 2 -->
+          <div class="col-md-4 col-lg-3">
+            <div class="card movie-card h-100">
+              <img
+                src="https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg"
+                class="card-img-top"
+                alt="Avatar: The Way of Water"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Avatar: The Way of Water</h5>
+                <p class="text-muted">Releasing: Dec 16, 2023</p>
+                <p class="card-text text-muted">Sci-Fi, Adventure</p>
+                <button
+                  class="btn btn-outline-dark w-100"
+                  data-bs-toggle="modal"
+                  data-bs-target="#trailerModal"
+                >
+                  <i class="fas fa-play"></i> Trailer
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Coming Soon Movie 3 -->
+          <div class="col-md-4 col-lg-3">
+            <div class="card movie-card h-100">
+              <img
+                src="https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg"
+                class="card-img-top"
+                alt="Indiana Jones 5"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Indiana Jones 5</h5>
+                <p class="text-muted">Releasing: Jun 30, 2023</p>
+                <p class="card-text text-muted">Adventure, Action</p>
+                <button
+                  class="btn btn-outline-dark w-100"
+                  data-bs-toggle="modal"
+                  data-bs-target="#trailerModal"
+                >
+                  <i class="fas fa-play"></i> Trailer
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Coming Soon Movie 4 -->
+          <div class="col-md-4 col-lg-3">
+            <div class="card movie-card h-100">
+              <img
+                src="https://image.tmdb.org/t/p/w500/nogV4th2P5QWYvQIMiWHj4CFLU9.jpg"
+                class="card-img-top"
+                alt="Mission: Impossible 7"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Mission: Impossible 7</h5>
+                <p class="text-muted">Releasing: Jul 14, 2023</p>
+                <p class="card-text text-muted">Action, Thriller</p>
+                <button
+                  class="btn btn-outline-dark w-100"
+                  data-bs-toggle="modal"
+                  data-bs-target="#trailerModal"
+                >
+                  <i class="fas fa-play"></i> Trailer
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <h5><i class="fas fa-film me-2"></i>CineMax</h5>
+            <p>Your ultimate movie experience.</p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Movies</a></li>
+              <li><a href="#" class="text-white">Cinemas</a></li>
+              <li><a href="#" class="text-white">Offers</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Connect With Us</h5>
+            <div class="social-icons">
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-facebook-f fa-lg"></i
+              ></a>
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-twitter fa-lg"></i
+              ></a>
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-instagram fa-lg"></i
+              ></a>
+              <a href="#" class="text-white"
+                ><i class="fab fa-youtube fa-lg"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <hr class="bg-light" />
+        <p class="text-center mb-0">
+          &copy; 2023 CineMax. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- TRAILER MODAL -->
+    <div class="modal fade" id="trailerModal" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header border-0">
+            <h5 class="modal-title">Movie Trailer</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body p-0">
+            <div class="ratio ratio-16x9">
+              <iframe
+                src="https://www.youtube.com/embed/mqqft2x_Aa4"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOOK TICKET MODAL -->
+    <div class="modal fade" id="bookTicketModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Book Your Ticket</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label class="form-label">Movie</label>
+                <select class="form-select">
+                  <option>The Batman</option>
+                  <option>Dune</option>
+                  <option>Spider-Man: No Way Home</option>
+                  <option>The Matrix Resurrections</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Cinema</label>
+                <select class="form-select">
+                  <option>CineMax Downtown</option>
+                  <option>CineMax West Mall</option>
+                  <option>CineMax Eastside</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Date</label>
+                <input type="date" class="form-control" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Showtime</label>
+                <select class="form-select">
+                  <option>10:00 AM</option>
+                  <option>1:30 PM</option>
+                  <option>5:00 PM</option>
+                  <option>8:30 PM</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Seats</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  min="1"
+                  max="10"
+                  value="1"
+                />
+              </div>
+              <button type="submit" class="btn btn-danger w-100">
+                <i class="fas fa-ticket-alt me-2"></i>Confirm Booking
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
